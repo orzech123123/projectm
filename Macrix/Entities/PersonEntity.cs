@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Xml.Serialization;
 using Macrix.ViewModels;
 
 namespace Macrix.Entities
 {
+    [Serializable]
     public class PersonEntity : BaseViewModel
     {
         private string firstname;
@@ -13,7 +15,8 @@ namespace Macrix.Entities
         private string postalCode;
         private string phoneNumber;
         private DateTime birthdate;
-        
+
+        [XmlIgnore]
         public bool IsChanged { get; set; }
 
         public override void OnPropertyChanged(string name)
@@ -22,6 +25,7 @@ namespace Macrix.Entities
             base.OnPropertyChanged(name);
         }
 
+        [XmlElement("Firstname")]
         public string Firstname
         {
             get
@@ -35,6 +39,7 @@ namespace Macrix.Entities
             }
         }
 
+        [XmlElement("Lastname")]
         public string Lastname
         {
             get
@@ -48,6 +53,7 @@ namespace Macrix.Entities
             }
         }
 
+        [XmlElement("Street")]
         public string Street
         {
             get
@@ -60,7 +66,8 @@ namespace Macrix.Entities
                 OnPropertyChanged("Street");
             }
         }
-        
+
+        [XmlElement("HouseNumber")]
         public string HouseNumber
         {
             get
@@ -73,7 +80,8 @@ namespace Macrix.Entities
                 OnPropertyChanged("HouseNumber");
             }
         }
-        
+
+        [XmlElement("FlatNumber")]
         public string FlatNumber
         {
             get
@@ -86,7 +94,8 @@ namespace Macrix.Entities
                 OnPropertyChanged("FlatNumber");
             }
         }
-        
+
+        [XmlElement("PostalCode")]
         public string PostalCode
         {
             get
@@ -100,6 +109,7 @@ namespace Macrix.Entities
             }
         }
 
+        [XmlElement("PhoneNumber")]
         public string PhoneNumber
         {
             get
@@ -113,6 +123,7 @@ namespace Macrix.Entities
             }
         }
 
+        [XmlElement("Birthdate")]
         public DateTime Birthdate
         {
             get
@@ -127,6 +138,7 @@ namespace Macrix.Entities
             }
         }
 
+        [XmlIgnore]
         public int Age
         {
             get
@@ -139,5 +151,15 @@ namespace Macrix.Entities
                 return age;
             }
         }
+    }
+
+    [Serializable]
+    [XmlRoot("PersonCollection")]
+    public class PersonCollection
+    {
+        [XmlArray("Persons")]
+        [XmlArrayItem("PersonEntity", typeof(PersonEntity))]
+        public PersonEntity[] Persons { get; set; }
+
     }
 }
