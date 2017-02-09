@@ -4,7 +4,7 @@ namespace Macrix.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public void OnPropertyChanged(string name)
+        public virtual void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }

@@ -8,8 +8,7 @@ namespace Macrix.Commands
         private readonly Predicate<object> canExecute;
         private readonly Action<object> execute;
 
-        public DelegateCommand(Predicate<object> canExecute, Action<object> execute)
-            : this()
+        public DelegateCommand(Predicate<object> canExecute, Action<object> execute) : this()
         {
             this.canExecute = canExecute;
             this.execute = execute;

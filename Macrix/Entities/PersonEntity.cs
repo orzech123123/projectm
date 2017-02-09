@@ -13,6 +13,14 @@ namespace Macrix.Entities
         private string postalCode;
         private string phoneNumber;
         private DateTime birthdate;
+        
+        public bool IsChanged { get; set; }
+
+        public override void OnPropertyChanged(string name)
+        {
+            IsChanged = true;
+            base.OnPropertyChanged(name);
+        }
 
         public string Firstname
         {
