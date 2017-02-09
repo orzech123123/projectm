@@ -7,7 +7,10 @@
         Title="MainWindow" Height="600" Width="800">
     <Grid>
         <views:TableView />
+      <!--  <views:ButtonsView Margin="0,0,0,531"></views:ButtonsView>-->
     </Grid>
+
+
 </Window>
 
 <!--

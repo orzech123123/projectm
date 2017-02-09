@@ -29,6 +29,10 @@ namespace Macrix.Commands
             execute(parameter);
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
     }
 }

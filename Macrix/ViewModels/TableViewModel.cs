@@ -44,22 +44,25 @@ namespace Macrix.ViewModels
                 PersonEntities.RemoveAt(index);
         }
 
-        private bool CanSave(object entity)
+        public bool CanSave(object entity)
         {
             return PersonEntitiesChanged();
         }
 
-        private void Save(object entity)
+        public void Save(object entity)
         {
-
+            foreach (var personEntity in PersonEntities)
+            {
+                personEntity.IsChanged = false;
+            }
         }
-        
-        private bool CanCancel(object entity)
+
+        public bool CanCancel(object entity)
         {
             return PersonEntitiesChanged();
         }
 
-        private void Cancel(object entity)
+        public void Cancel(object entity)
         {
 
         }
