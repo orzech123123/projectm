@@ -47,6 +47,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="button" Command="{Binding SaveCommand}" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button" Command="{Binding SaveCommand}" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button1" Command="{Binding CancelCommand}" Content="Anuluj" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>
