@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Macrix.ViewModels;
 
 namespace Macrix.Entities
@@ -119,6 +115,20 @@ namespace Macrix.Entities
             {
                 birthdate = value;
                 OnPropertyChanged("Birthdate");
+                OnPropertyChanged("Age");
+            }
+        }
+
+        public int Age
+        {
+            get
+            {
+                var today = DateTime.Today;
+                var age = today.Year - birthdate.Year;
+                if (birthdate > today.AddYears(-age))
+                    age--;
+
+                return age;
             }
         }
     }

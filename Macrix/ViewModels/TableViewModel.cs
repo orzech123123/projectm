@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Threading;
-using System.Windows;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Macrix.Commands;
 using Macrix.Entities;
@@ -10,83 +7,35 @@ namespace Macrix.ViewModels
 {
     public class TableViewModel : BaseViewModel
     {
-        ObservableCollection<PersonEntity> infos;
-        ICommand _command;
+        public ICommand RemoveCommand => removeCommand ?? (removeCommand = new DelegateCommand(CanRemove, Remove));
+        private ObservableCollection<PersonEntity> personEntities;
+        private ICommand removeCommand;
 
         public TableViewModel()
         {
-            PersonsInfo = new ObservableCollection<PersonEntity>();
-
-            PersonsInfo.Add(new PersonEntity
-            {
-                Firstname = "aaa",
-                Lastname = "bbb",
-                Birthdate = new DateTime(2011, 11, 11)
-            });
-
-            //Haha();
+            PersonEntities = new ObservableCollection<PersonEntity>();
         }
 
-        private void Haha()
+        public ObservableCollection<PersonEntity> PersonEntities
         {
-            new Thread(() =>
-            {
-                Thread.CurrentThread.IsBackground = true;
-
-                Application.Current.Dispatcher.Invoke((Action) delegate
-                {
-//                    PersonsInfo.Add(new RecordInfo { Name = "JJ", Age = 21, DateOfBirth = new DateTime(1990, 11, 27), Address = "XXXXX XXXXXXXX XX" });
-
-                });
-
-                Thread.Sleep(2000);
-                Haha();
-            }).Start();
-        }
-
-        public ObservableCollection<PersonEntity> PersonsInfo
-        {
-            get { return infos; }
+            get { return personEntities; }
             set
             {
-                infos = value;
-                OnPropertyChanged("PersonsInfo");
+                personEntities = value;
+                OnPropertyChanged("PersonEntities");
             }
         }
-
-        public ICommand RemoveCommand
-        {
-            get
-            {
-                if (_command == null)
-                {
-                    _command = new DelegateCommand(CanExecute, Execute);
-                }
-                return _command;
-            }
-        }
-
-        private void Execute(object parameter)
-        {
-
-//            Application.Current.Dispatcher.Invoke((Action)delegate
-//            {
-//                PersonsInfo.Add(new RecordInfo { Name = "JJ", Age = 21, DateOfBirth = new DateTime(1990, 11, 27), Address = "XXXXX XXXXXXXX XX" });
-//
-//            });
-
-            return;
-
-            int index = PersonsInfo.IndexOf(parameter as PersonEntity);
-            if (index > -1 && index < PersonsInfo.Count)
-            {
-                PersonsInfo.RemoveAt(index);
-            }
-        }
-
-        private bool CanExecute(object parameter)
+        
+        private bool CanRemove(object parameter)
         {
             return true;
+        }
+
+        private void Remove(object parameter)
+        {
+            var index = PersonEntities.IndexOf(parameter as PersonEntity);
+            if (index > -1 && index < PersonEntities.Count)
+                PersonEntities.RemoveAt(index);
         }
     }
 }
