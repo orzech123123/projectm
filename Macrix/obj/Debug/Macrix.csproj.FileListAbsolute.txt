@@ -1,0 +1,16 @@
+D:\p\Macrix\Macrix\Macrix\bin\Debug\Macrix.exe.config
+D:\p\Macrix\Macrix\Macrix\bin\Debug\Macrix.exe
+D:\p\Macrix\Macrix\Macrix\bin\Debug\Macrix.pdb
+D:\p\Macrix\Macrix\Macrix\obj\Debug\MainWindow.g.cs
+D:\p\Macrix\Macrix\Macrix\obj\Debug\App.g.cs
+D:\p\Macrix\Macrix\Macrix\obj\Debug\Macrix_MarkupCompile.cache
+D:\p\Macrix\Macrix\Macrix\obj\Debug\Macrix_MarkupCompile.lref
+D:\p\Macrix\Macrix\Macrix\obj\Debug\MainWindow.baml
+D:\p\Macrix\Macrix\Macrix\obj\Debug\Macrix.g.resources
+D:\p\Macrix\Macrix\Macrix\obj\Debug\Macrix.Properties.Resources.resources
+D:\p\Macrix\Macrix\Macrix\obj\Debug\Macrix.csproj.GenerateResource.Cache
+D:\p\Macrix\Macrix\Macrix\obj\Debug\Macrix.exe
+D:\p\Macrix\Macrix\Macrix\obj\Debug\Macrix.pdb
+D:\p\Macrix\Macrix\Macrix\obj\Debug\Views\TableView.g.cs
+D:\p\Macrix\Macrix\Macrix\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\p\Macrix\Macrix\Macrix\obj\Debug\Views\TableView.baml
